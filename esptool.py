@@ -846,6 +846,9 @@ def write_flash(esp, args):
         print ('\rWrote %d bytes at 0x%x in %.1f seconds (%.1f kbit/s)...'
                % (len(image), address, t, len(image) / t * 8 / 1000))
     print 'Leaving...'
+    print 'Verifying just-written flash...'
+    _verify_flash(flasher, args, flash_params)
+    #
     if args.verify:
         print 'Verifying just-written flash...'
         _verify_flash(flasher, args, flash_params)
